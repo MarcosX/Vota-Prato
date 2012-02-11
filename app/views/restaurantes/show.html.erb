@@ -14,8 +14,23 @@
   <b>Endereco:</b>
   <%= @restaurante.endereco %>
 </p>
+<p>
+<b>Nota media:</b> <%= @restaurante.qualificacoes.average(:nota) %>
+</p>
+<p>
+<b>Qualificacoes:</b> <%= @restaurante.qualificacoes.count %>
+</p>
+<p>
+<b>Preco Medio:</b> <%= @restaurante.qualificacoes.average(:valor_gasto) %>
+</p>
 
 
 <%= link_to 'Qualificar este restaurante', :controller => "qualificacoes", :action => "new", :restaurante => @restaurante %>
 <%= link_to 'Edit', edit_restaurante_path(@restaurante) %> |
 <%= link_to 'Back', restaurantes_path %>
+
+<% unless @restaurante.comentarios.empty? %>
+  <%= comentarios @restaurante %>
+<% end %>
+
+<%= novo_comentario(@restaurante) %>
