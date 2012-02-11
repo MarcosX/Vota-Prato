@@ -9,5 +9,11 @@ module ApplicationHelper
     menu_principal << "<ul>"
     raw menu_principal
   end
+  
+  def formatar_real(number)
+    number_to_currency(number, :unity => "R$", :separator => ",", :delimiter => ".")
+  end
+  
+  
 
 end
