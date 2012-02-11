@@ -2,7 +2,7 @@ class ComentariosController < ApplicationController
   # GET /comentarios
   # GET /comentarios.json
   def index
-    @comentarios = Comentario.all
+    @comentarios = Comentario.order('comentavel.id').paginate :page => params['page'], :per_page => 3
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,6 +46,7 @@ class ComentariosController < ApplicationController
       if @comentario.save
         format.html { redirect_to @comentario, notice: 'Comentario was successfully created.' }
         format.json { render json: @comentario, status: :created, location: @comentario }
+        format.js {}
       else
         format.html { render action: "new" }
         format.json { render json: @comentario.errors, status: :unprocessable_entity }

@@ -19,7 +19,6 @@
   </tr>
 <% end %>
 </table>
-<%= will_paginate @clientes%>
 
 <br />
 

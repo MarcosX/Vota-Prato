@@ -21,7 +21,7 @@
   </tr>
 <% end %>
 </table>
-<%= will_paginate @comentarios%>
+
 <br />
 
 <%= link_to 'New Comentario', new_comentario_path %>

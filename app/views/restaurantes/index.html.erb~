@@ -12,11 +12,12 @@
     <td><%= restaurante.nome %></td>
     <td><%= restaurante.endereco %></td>
     <td><%= restaurante.especialidade %></td>
-    <td><%= link_to 'Mostrar', :action => 'show', :id => restaurante } %></td>
+    <td><%= link_to 'Mostrar', {:action => 'show', :id => restaurante } %></td>
     <td><%= link_to 'Editar', {:action => 'edit', :id => restaurante } %></td>
     <td><%= link_to 'Excluir', {:action => 'destroy', :id => restaurante } %></td>
   </tr>
   <% end %>
   </table>
+  <%= will_paginate @restaurantes %>
   <br/>
   <%= link_to 'Novo', {:action => 'new' } %>

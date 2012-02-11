@@ -2,7 +2,7 @@ class QualificacoesController < ApplicationController
   # GET /qualificacoes
   # GET /qualificacoes.json
   def index
-    @qualificacoes = Qualificacao.all
+    @qualificacoes = Qualificacao.order('restaurante_id').paginate :page => params['page'], :per_page => 3
 
     respond_to do |format|
       format.html # index.html.erb

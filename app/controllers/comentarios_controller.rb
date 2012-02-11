@@ -2,7 +2,7 @@ class ComentariosController < ApplicationController
   # GET /comentarios
   # GET /comentarios.json
   def index
-    @comentarios = Comentario.all
+    @comentarios = Comentario.order('id').paginate :page => params['page'], :per_page => 3
 
     respond_to do |format|
       format.html # index.html.erb

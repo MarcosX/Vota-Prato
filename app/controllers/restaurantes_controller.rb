@@ -2,7 +2,7 @@ class RestaurantesController < ApplicationController
   # GET /restaurantes
   # GET /restaurantes.json
   def index
-    @restaurantes = Restaurante.all
+    @restaurantes = Restaurante.order("nome").paginate :page => params['page'], :per_page => 3
 
     respond_to do |format|
       format.html # index.html.erb
